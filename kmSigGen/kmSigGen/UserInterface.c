@@ -583,7 +583,7 @@ void usrSetFrequency(uint64_t frequency) {
 	// recalculate frequency to on-screen structure
 	usrFrequencyToSignalGeneratorParams(frequency, &_signalGeneratorParamsTmp);
 	// copy wave type from current settings
-	_signalGeneratorParamsTmp.waveType = _signalGeneratorParamsTmp.waveType;
+	_signalGeneratorParamsTmp.waveType = _signalGeneratorParams.waveType;
 	// copy into current value
 	_signalGeneratorParams = _signalGeneratorParamsTmp;
 	// mark parameters as changed so new value will be passed to signal generator
