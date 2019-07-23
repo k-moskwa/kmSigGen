@@ -27,8 +27,8 @@
 #define CONFIG_H_
 
 // Enable one available localizations
-//#define KMSG_LOCALE "localeEn.h"
-#define KMSG_LOCALE "localePl.h"
+#define KMSG_LOCALE "localeEn.h"
+//#define KMSG_LOCALE "localePl.h"
 
 // EEPROM definition of the ID/VER header
 #define KMSG_MAGIC "KMSG100"
