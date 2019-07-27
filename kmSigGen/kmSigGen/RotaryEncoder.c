@@ -38,9 +38,9 @@
 #define RSE_GRAY_CODE_B11 0x03
 
 
-uint8_t _pin1 = 0, _pin2 = 0;
-uint8_t _rsePreviousCode = 0;
-int8_t _rseChange = 0;
+static uint8_t _pin1 = 0, _pin2 = 0;
+static uint8_t _rsePreviousCode = 0;
+static int8_t _rseChange = 0;
 
 // Private functions
 uint8_t rseGetGrayCode(void);

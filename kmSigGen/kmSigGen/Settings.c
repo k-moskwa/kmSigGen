@@ -36,9 +36,9 @@
 #include "SignalGeneratorAD9833.h"
 
 #ifndef KMSG_NO_EEPROM
-uint64_t EEMEM _EEPROMsettingsPresets[KMSG_MAX_PRESETS];
-char EEMEM _EEPROMsettingsMagic[KMSG_MAGIC_LENGTH];
-uint64_t _settingsPresets[KMSG_MAX_PRESETS];
+static uint64_t EEMEM _EEPROMsettingsPresets[KMSG_MAX_PRESETS];
+static char EEMEM _EEPROMsettingsMagic[KMSG_MAGIC_LENGTH];
+static uint64_t _settingsPresets[KMSG_MAX_PRESETS];
 
 // Private functions
 uint64_t combineWaveTypeAndFrequency(SgWaveType waveType, uint64_t frequency);

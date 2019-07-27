@@ -23,6 +23,7 @@
  *  
  *  References:
  * https://www.leniwiec.org/en/2014/04/28/rotary-shaft-encoder-how-to-connect-it-and-handle-it-with-avr-atmega8-16-32-168-328/
+ * http://mirekk36.blogspot.com/2016/02/enkoder-obrotowy-od-podstaw.html
  *
  */
 

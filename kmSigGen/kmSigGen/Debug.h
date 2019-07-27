@@ -34,7 +34,7 @@ NOTE: This method should be issued first in the main routine
 */
 void dbPullUpAllPorts(void);
 
-/*
+/**
 Initializes the debug routines with specific number of dbStep calls to switch DB_PIN between states
 Following definitions to be set in config.h file
 #define DEBUG_DDR data direction register for debug led (e.g. DDRB)
@@ -45,10 +45,20 @@ to disable debug feature completely - define NO_PIN_DEBUG env variable
 */
 void dbInit(uint8_t steps);
 
-/*
+/**
 Issues next debug step.
 */
 void dbStep(void);
+
+/**
+Changes output state of the Debug Led pin to High state
+*/
+void dbLedHigh(void);
+
+/**
+Changes output state of the Debug Led pin to Low state
+*/
+void dbLedLow(void);
 
 
 #endif /* DEBUG_H_ */

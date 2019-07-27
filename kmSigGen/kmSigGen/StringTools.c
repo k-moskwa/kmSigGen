@@ -37,7 +37,7 @@
 #define STR_PACK_COUNT_LSB_BIT 21
 #define STR_PACK_BUFFER_LENGTH 20
 
-char _strBuffer[STR_INTERNAL_BUFFERS_SIZE_OF] = "";
+static char _strBuffer[STR_INTERNAL_BUFFERS_SIZE_OF] = "";
 
 void strUnpackBuffer(uint32_t command, char *bufferResult) {
   // extract buffer position
