@@ -1,4 +1,5 @@
-/*
+/** @file
+ * @brief Version file.
  * version.h
  *
  *  Created on: Jul 12, 2019
@@ -27,7 +28,7 @@
 #define VERSION_H_
 
 #define APP_NAME	"kmSigGen"
-#define APP_VERSION	"1.0.1"
+#define APP_VERSION	"1.0.2"
 #define APP_YEAR	"2019"
 #define APP_AUTHOR	"Krzysztof Moskwa"
 

@@ -1,4 +1,5 @@
-/*
+/** @file
+ * @brief Functions for sending commands to AD9833 module via SPI interface.
  * SignalGeneratorAD9833.h
  *
  *  Created on: Jul 10, 2019
@@ -22,13 +23,13 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  *  References:
- * https://www.analog.com/media/en/technical-documentation/data-sheets/ad9833.pdf
- * https://www.analog.com/media/en/technical-documentation/application-notes/AN-1070.pdf
- * https://github.com/Billwilliams1952/AD9833-Library-Arduino
- * https://github.com/tuomasnylund/function-gen
- * http://www.vwlowen.co.uk/arduino/AD9833-waveform-generator/AD9833-waveform-generator.htm
- * https://www.instructables.com/id/Signal-Generator-AD9833/
- * https://ww1.microchip.com/downloads/en/DeviceDoc/Microchip%208bit%20mcu%20AVR%20ATmega8A%20data%20sheet%2040001974A.pdf
+ * -# https://www.analog.com/media/en/technical-documentation/data-sheets/ad9833.pdf
+ * -# https://www.analog.com/media/en/technical-documentation/application-notes/AN-1070.pdf
+ * -# https://github.com/Billwilliams1952/AD9833-Library-Arduino
+ * -# https://github.com/tuomasnylund/function-gen
+ * -# http://www.vwlowen.co.uk/arduino/AD9833-waveform-generator/AD9833-waveform-generator.htm
+ * -# https://www.instructables.com/id/Signal-Generator-AD9833/
+ * -# https://ww1.microchip.com/downloads/en/DeviceDoc/Microchip%208bit%20mcu%20AVR%20ATmega8A%20data%20sheet%2040001974A.pdf
  */
 
 #ifndef SIGNALGENERATORAD9833_H_
@@ -42,46 +43,46 @@
 
 // Definition of wave types for Signal Generator
 typedef enum {
-	// Square Wave Type 5V p-p
+	/// Square Wave Type 5V p-p
 	SG_SIG_SQUARE = 1,
-	// Sine Wave Type 0.6V p-p
+	/// Sine Wave Type 0.6V p-p
 	SG_SIG_SINE = 2,
-	// Triangle Wave Type 0.6V p-p
+	/// Triangle Wave Type 0.6V p-p
 	SG_SIG_TRIANGLE = 3,
-	// No output signal (signal level from last out value)
+	/// No output signal (signal level from last out value)
 	SG_SIG_NONE = 0
 } SgWaveType;
 
 /**
-Initialize and disable analog output of Signal Generator
-Following definitions to be set in config.h file
-#define SG_DDR data direction register for communication with Signal Generator (e.g. DDRB)
-#define SG_PORT port for communication with Signal Generator (e.g. PORTB)
-#define SG_DD_SS FSYNC pin (e.g PB2)
-#define SG_DD_MOSI	SDAT pin (e.g PB3)
-#define SG_DD_MISO	optional (e.g PB4)
-#define SG_DD_SCK 	SCK pin (e.g. PB5)
-#define SG_MCLK AD9833 master clock in Hz (e.g. 25000000ULL for 25MHz)
-#define SG_FREQ_COEF multiplier of the frequency provided to calcFreqReg and calcNearestFreq methods (e.g 1000ULL for *1000)
+Initialize and disable analog output of Signal Generator.
+Following definitions to be set in config.h file @n
+#define \b SG_DDR data direction register for communication with Signal Generator (e.g. DDRB) @n
+#define \b SG_PORT port for communication with Signal Generator (e.g. PORTB) @n
+#define \b SG_DD_SS FSYNC pin (e.g PB2) @n
+#define \b SG_DD_MOSI	SDAT pin (e.g PB3) @n
+#define \b SG_DD_MISO	optional (e.g PB4) @n
+#define \b SG_DD_SCK 	SCK pin (e.g. PB5) @n
+#define \b SG_MCLK AD9833 master clock in Hz (e.g. 25000000ULL for 25MHz) @n
+#define \b SG_FREQ_COEF multiplier of the frequency provided to calcFreqReg and calcNearestFreq methods (e.g 1000ULL for *1000)
 */
 void sgInit(void);
 
 /**
-Calculate FreqReg from requested Frequency
+Calculate FreqReg from requested Frequency.
 @param freq requested frequency multiplied by 1000 (1 Hx = 1000L, 1KHz = 1000000L 1MHz = 1000000000
 @result 28bit value of frequency regulator
 */
 uint32_t sgCalcFreqReg(uint64_t freq);
 
 /**
-Calculate Frequency from FreqReg
+Calculate Frequency from FreqReg.
 @param freqReg  28bit value of the frequency regulator
 @result frequency calculated using CG_CLOCK
 */
 uint64_t sgCalcFreq(uint32_t freqReg);
 
 /**
-Calculate real nearest frequency from requested frequency
+Calculate real nearest frequency from requested frequency.
 For 25MHz clock the frequency step for AD9833 is 0.093132257 Hz
 @param freq requested frequency (multiplied by 1000)
 @result real frequency calculated from nearest available frequency (multiplied by 1000)
@@ -89,7 +90,7 @@ For 25MHz clock the frequency step for AD9833 is 0.093132257 Hz
 uint64_t sgCalcNearestFreq(uint64_t requestedFreq);
 
 /**
-Sets frequency and Wave Type of the Signal Generator to provided values
+Sets frequency and Wave Type of the Signal Generator to provided values.
 NOTE: frequency is set to nearest possible frequency available in 
 Signal Generator that is based on AD9833 master clock (as defined in SG_MCLK)
 @param requestedFreq requested frequency to be set in Signal Generator

@@ -34,11 +34,11 @@
 #define EXT_BIN_COMMAND_POS_L1 29
 #define EXT_SEND_BUFFER_SELECTOR_BIT 25
 
-char _extStrBuffer1[STR_INTERNAL_BUFFERS_SIZE_OF] = "";
-char _extStrBuffer2[STR_INTERNAL_BUFFERS_SIZE_OF] = "";
+static char _extStrBuffer1[STR_INTERNAL_BUFFERS_SIZE_OF] = "";
+static char _extStrBuffer2[STR_INTERNAL_BUFFERS_SIZE_OF] = "";
 
-volatile bool _extStrBuffer1Changed = false;
-volatile bool _extStrBuffer2Changed = false;
+static volatile bool _extStrBuffer1Changed = false;
+static volatile bool _extStrBuffer2Changed = false;
 
 // Private functions
 void extCommand(uint32_t binaryCommand, uint32_t *binaryResponse, bool *responseAvailable);

@@ -30,9 +30,9 @@
 #include "config.h"
 #include "Buttons.h"
 
-uint8_t _btnPin = 0;
-bool _btnPreviousState = false;
-bool _btnPressed = false;
+static uint8_t _btnPin = 0;
+static bool _btnPreviousState = false;
+static bool _btnPressed = false;
 
 
 // Private functions
@@ -53,7 +53,7 @@ void btnInit(uint8_t pin) {
 	_btnPressed = false;
 
 	// pull-up disabled for selected pins cause implemented on HW level
-	RSE_PORT &= ~_BV(_btnPin);
+	BUTTON_PORT &= ~_BV(_btnPin);
 
 	// set button pin as input
 	BUTTON_DDR &=~ _BV(_btnPin);

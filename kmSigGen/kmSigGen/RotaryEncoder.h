@@ -1,4 +1,5 @@
-/*
+/** @file
+ * @brief Functions for Rotary Shaft Encoder.
  * RotaryEncoder.h
  *
  *  Created on: Jul 10, 2019
@@ -22,7 +23,8 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *  
  *  References:
- * https://www.leniwiec.org/en/2014/04/28/rotary-shaft-encoder-how-to-connect-it-and-handle-it-with-avr-atmega8-16-32-168-328/
+ * -# https://www.leniwiec.org/en/2014/04/28/rotary-shaft-encoder-how-to-connect-it-and-handle-it-with-avr-atmega8-16-32-168-328/
+ * -# http://mirekk36.blogspot.com/2016/02/enkoder-obrotowy-od-podstaw.html
  *
  */
 
@@ -31,31 +33,31 @@
 
 #include <stdint.h>
 
-/*
-Initializes routines and variables responsible for rotary encoder operations
-Following definitions to be set in config.h file
-#define RSE_DDR  data direction register for rotary encoder port (e.g. DDRC)
-#define RSE_PORT_IN rotary encoder port (e.g. PINC)
-#define RSE_PIN1 rotary encoder pin 1 (e.g. PC2)
-#define RSE_PIN2 rotary encoder pin 1 (e.g. PC3)
+/**
+Initializes routines and variables responsible for rotary encoder operations.
+Following definitions to be set in config.h file @n
+#define \b RSE_DDR  data direction register for rotary encoder port (e.g DDRC) @n
+#define \b RSE_PORT_IN rotary encoder port (e.g PINC) @n
+#define \b RSE_PIN1 rotary encoder pin 1 (e.g PC2) @n
+#define \b RSE_PIN2 rotary encoder pin 1 (e.g PC3) @n
 @param pin1 - first pin to which rotary shaft encoder is connected
 @param pin2 - second pin to which rotary shaft encoder is connected
 */
 void rseInit(uint8_t pin1, uint8_t pin2);
 
-/*
- * To be periodically issued in the main loop;
- */
+/**
+To be periodically issued in the main loop.
+*/
 void rseLoop(void);
 
-/*
- * Returns the last change since value has been reset
- */
+/**
+Returns the last change since value has been reset.
+*/
 int8_t getLastChange(void);
 
-/*
- * Returns the last change since value has been reset, and the resets value
- */
+/**
+Returns the last change since value has been reset, and the resets value.
+*/
 int8_t rseGetLastChangeAndReset(void);
 
 #endif /* ROTARYENCODER_H_ */

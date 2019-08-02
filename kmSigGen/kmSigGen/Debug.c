@@ -29,9 +29,9 @@
 
 #include "Debug.h"
 
-uint8_t _dbSteps;
-#ifndef NO_PIN_DEBUG
-uint8_t _dbStepCurrent;
+uint8_t _dbSteps = 0;
+#ifndef KMSG_NO_PIN_DEBUG
+static uint8_t _dbStepCurrent = 0;
 #endif
 
 void dbPullUpAllPorts(void) {
@@ -57,5 +57,18 @@ void dbStep(void) {
 	} else {
 		_dbStepCurrent--;
 	}
+#endif
+}
+
+void dbLedHigh(void) {
+#ifndef KMSG_NO_PIN_DEBUG
+	DEBUG_PORT |= _BV(DEBUG_PIN);
+#endif
+}
+
+
+void dbLedLow(void) {
+#ifndef KMSG_NO_PIN_DEBUG
+	DEBUG_PORT &= ~_BV(DEBUG_PIN);
 #endif
 }

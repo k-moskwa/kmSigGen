@@ -80,14 +80,14 @@
 #define Rw _BV(LCD_PIN_RW)  // Read/Write byte value
 #define Rs _BV(LCD_PIN_RS)  // Register select byte value
 
-uint8_t _displayFunction = 0;
-uint8_t _displayControl = 0;
-uint8_t _displayMode = 0;
-uint8_t _cols = 0;
-uint8_t _rows = 0;
-uint8_t _charSize = 0;
-uint8_t _backlightVal = 0;
-uint8_t _spaceToEndOfTheLine = 0;
+static uint8_t _displayFunction = 0;
+static uint8_t _displayControl = 0;
+static uint8_t _displayMode = 0;
+static uint8_t _cols = 0;
+static uint8_t _rows = 0;
+static uint8_t _charSize = 0;
+static uint8_t _backlightVal = 0;
+static uint8_t _spaceToEndOfTheLine = 0;
 
 
 // Private functions

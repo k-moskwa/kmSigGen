@@ -125,23 +125,23 @@ static const int8_t _freqSetupStates[] = {
 	FS_APPLY
 };
 
-bool _parametersChanged = false;
+static bool _parametersChanged = false;
 
-uint8_t _menuTicks = 0;
-uint8_t _menuItems = 0;
-UInt8Pair _menuCoords[MENU_COORDS_SIZE_OF];
+static uint8_t _menuTicks = 0;
+static uint8_t _menuItems = 0;
+static UInt8Pair _menuCoords[MENU_COORDS_SIZE_OF];
 
-uint8_t _menuState = MENU_INIT;
-LoadSave _loadSave = PRESET_LOAD;
+static uint8_t _menuState = MENU_INIT;
+static LoadSave _loadSave = PRESET_LOAD;
 
-int8_t _freqSetupCurrentState = FS_CANCEL;
+static int8_t _freqSetupCurrentState = FS_CANCEL;
 
-SignalGeneratorParams _signalGeneratorParams;
-SignalGeneratorParams _signalGeneratorParamsOnEdit;
-SignalGeneratorParams _signalGeneratorParamsTmp;
+static SignalGeneratorParams _signalGeneratorParams;
+static SignalGeneratorParams _signalGeneratorParamsOnEdit;
+static SignalGeneratorParams _signalGeneratorParamsTmp;
 
-uint16_t _timeout = UINT16_MAX;
-char _lcdStrBuffer[STR_INTERNAL_BUFFERS_SIZE_OF] = "";
+static uint16_t _timeout = UINT16_MAX;
+static char _lcdStrBuffer[STR_INTERNAL_BUFFERS_SIZE_OF] = "";
 
 // private functions
 uint64_t usrSignalGeneratorParamsToFrequency(SignalGeneratorParams params);

@@ -1,4 +1,5 @@
-/*
+/** @file
+ * @brief Generic string tools.
  * StringTools.h
  *
  *  Created on: Jul 10, 2019
@@ -31,6 +32,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include "UserInterface.h"
+#include "SignalGeneratorAD9833.h"
 
 typedef enum {
 	STR_MULT_NONE = 1,
@@ -39,21 +41,21 @@ typedef enum {
 } FreqMultiplier;
 
 /**
-Unpacks characters received via TWI command into provided buffer
+Unpacks characters received via TWI command into provided buffer.
 @param command A command received from TWI interface
 @result bufferResult String buffer to receive complete string
 */
 void strUnpackBuffer(uint32_t command, char *bufferResult);
 
 /**
-Returns true if provided string is empty
+Returns true if provided string is empty.
 @param buffer A string in buffer to be checked
 @result true in case string in buffer is empty
 */
 bool strIsEmpty(const char *buffer);
 
 /**
-Changes HI and LO frequency parts used in UserInterface into string that can be displayed
+Changes HI and LO frequency parts used in UserInterface into string that can be displayed.
 @param freqHi frequency value on the left side of dot ('.')
 @param freqLo frequency value on the right side of dot
 @result buffer A result string will be placed there
@@ -61,14 +63,14 @@ Changes HI and LO frequency parts used in UserInterface into string that can be 
 void strSignalFrequencyToStr(char *buffer, uint16_t freqHi, uint16_t freqLo);
 
 /**
-Returns string corresponding to the provided multiplier argument
+Returns string corresponding to the provided multiplier argument.
 @param multiplier A value to be converted to string
 @result string representing multiplier
 */
 const char *strSignalMultiplierToStr(FreqMultiplier multpilier);
 
 /**
-Returns complete string describing current frequency as used in UserInterface functions
+Returns complete string describing current frequency as used in UserInterface functions.
 @param freqHi frequency value on the left side of dot ('.')
 @param freqLo frequency value on the right side of dot
 @param multiplier A value to be converted to string
@@ -77,11 +79,18 @@ Returns complete string describing current frequency as used in UserInterface fu
 void strSignalParametersToStr(char *buffer, UIWaveType waveType, uint16_t freqHi, uint16_t freqLo, FreqMultiplier multpilier);
 
 /**
-Returns single character corresponding to the provided waveType argument
+Returns single character corresponding to the provided waveType argument.
 @param waveType A Wave Type as used by UI
 @result single character corresponding to the provided waveType argument
 */
 char strWaveTypeToSingleChar(UIWaveType waveType);
 
+
+/**
+Converts provided UIWaveType to SGWaveType value.
+@param uiWaveType input parameter as WaveType defined in UserInterface
+@result WaveType defined in SignalGenerator
+*/
+SgWaveType ui2sgWaveType(UIWaveType uiWaveType);
 
 #endif /* STRINGTOOLS_H_ */

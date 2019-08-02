@@ -1,5 +1,5 @@
-/*
- * stringsEn.h
+/** @file
+ * @brief Localization file for English language.
  *
  *  Created on: Jul 11, 2019
  *      Author: Krzysztof Moskwa

@@ -1,4 +1,5 @@
-/*
+/** @file
+ * @brief Configuration preprocessor parameters for kmSigGen project.
  * config.h
  *
  *  Created on: Jul 09, 2019
@@ -27,8 +28,8 @@
 #define CONFIG_H_
 
 // Enable one available localizations
-//#define KMSG_LOCALE "localeEn.h"
-#define KMSG_LOCALE "localePl.h"
+#define KMSG_LOCALE "localeEn.h"
+//#define KMSG_LOCALE "localePl.h"
 
 // EEPROM definition of the ID/VER header
 #define KMSG_MAGIC "KMSG100"
@@ -38,7 +39,7 @@
 
 // Definition of the TWI/I2C address (0xAD >> 1 ;-)
 #define TWI_SLAVE_ADDRESS 0x56
-#define TWI_BUFFER_LENGTH 8
+#define TWI_BUFFER_LENGTH 12
 
 // Port / pin definition for SPI (communication with AD9833)
 #define SG_DDR DDRB
@@ -60,6 +61,7 @@
 #define DEBUG_STEPS 100
 
 #define BUTTON_DDR DDRC
+#define BUTTON_PORT PORTC
 #define BUTTON_PORT_IN PINC
 #define BUTTON_PIN PC1
 

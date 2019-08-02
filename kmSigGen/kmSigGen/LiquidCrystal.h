@@ -1,4 +1,5 @@
-/*
+/** @file
+ * @brief Functions interfacing UserInterface.h with LCD.
  * LiquidCrystal.h
  * 
  *  Created on: Jul 10, 2019
@@ -36,11 +37,11 @@
  *      Vee - to 10k var resistor
  *
  *  References:
- * http://web.alfredstate.edu/faculty/weimandn/lcd/lcd_initialization/lcd_initialization_index.html
- * https://www.openhacks.com/uploadsproductos/eone-1602a1.pdf
- * https://github.com/arduino-libraries/LiquidCrystal
- * https://github.com/agnunez/ESP8266-I2C-LCD1602
- * https://github.com/sleemanj/LiquidCrystal_I2C_DFR
+ * -# http://web.alfredstate.edu/faculty/weimandn/lcd/lcd_initialization/lcd_initialization_index.html
+ * -# https://www.openhacks.com/uploadsproductos/eone-1602a1.pdf
+ * -# https://github.com/arduino-libraries/LiquidCrystal
+ * -# https://github.com/agnunez/ESP8266-I2C-LCD1602
+ * -# https://github.com/sleemanj/LiquidCrystal_I2C_DFR
  */
 
 #include <stdbool.h>
@@ -54,13 +55,13 @@
 #define LCD_5x8DOTS 0x00
 
 /**
-Initializes routines and variable responsible for LCD1602 liquid crystal display
-Following definitions to be set in config.h file
-#define LCD_DDR data direction register for LCD port (e.g. DDRD)
-#define LCD_PORT LCD port (e.g. PORTD)
-recommended definitions to provide as function inputs
-#define LCD_COLS 16
-#define LCD_ROWS 2
+Initializes routines and variable responsible for LCD1602 liquid crystal display.
+Following definitions to be set in config.h file @n
+#define \b LCD_DDR data direction register for LCD port (e.g DDRD) @n
+#define \b LCD_PORT LCD port (e.g PORTD) @n
+recommended definitions to provide as function inputs @n
+#define \b LCD_COLS 16 @n
+#define \b LCD_ROWS 2 @n
 @param lcd_cols	Number of columns your LCD display has.
 @param lcd_rows	Number of rows your LCD display has.
 @param charSize	The size in dots that the display has, use LCD_5x10DOTS or LCD_5x8DOTS.
@@ -69,9 +70,9 @@ void lcdInit(uint8_t lcdCols, uint8_t lcdRows, uint8_t charSize);
 
 /**
 Set the LCD display in the correct begin state, must be called before anything else is done.
-Uses port and DDR defined in config.h file (e.g.
-#define PORT_LCD PORTD
-#define DDR_LCD DDRD
+Uses port and DDR defined in config.h file @n
+#define \b PORT_LCD PORTD @n
+#define \b DDR_LCD DDRD
 */
 void lcdBegin(void);
 
@@ -93,7 +94,7 @@ Also all characters written on the display will return, when the display in enab
 void lcdNoDisplay();
 
 /**
-Show the characters on the LCD display, this is the normal behaviour. This method should
+Show the characters on the LCD display, this is the normal behavior. This method should
 only be used after noDisplay() has been used.
 */
 void lcdDisplay();

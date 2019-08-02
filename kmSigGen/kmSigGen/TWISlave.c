@@ -281,7 +281,6 @@ ISR(TWI_vect) {
 			break;
 		}
 		case TW_BUS_ERROR: {		// bus error, illegal stop/start
-			//_twiError = TW_BUS_ERROR;
 			twiStop();
 			break;
 		}

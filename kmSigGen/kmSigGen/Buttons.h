@@ -1,4 +1,5 @@
-/*
+/** @file
+ * @brief Functions for button in Rotary Shaft Encoder.
  * RotaryEncoder.h
  *
  *  Created on: Jul 10, 2019
@@ -30,11 +31,11 @@
 #include <stdbool.h>
 
 /**
-Initializes routines and variable responsible for button operations
-Following definitions to be set in config.h file
-#define BUTTON_DDR  data direction register for button port (e.g. DDRC)
-#define BUTTON_PORT_IN button port input (e.g. PINC)
-#define BUTTON_PIN button pin (e.g. PC1)
+Initializes routines and variable responsible for button operations.
+Following definitions to be set in config.h file @n
+#define \b BUTTON_DDR  data direction register for button port (e.g DDRC) @n
+#define \b BUTTON_PORT_IN button port input (e.g PINC) @n
+#define \b BUTTON_PIN button pin (e.g PC1) @n
 @param pin - pin to which button is connected
 */
 void btnInit(uint8_t pin);
@@ -45,13 +46,13 @@ To be periodically issued in the main loop.
 void btnLoop(void);
 
 /**
-Returns true in case button has been pressed since last btnReset function issued
+Returns true in case button has been pressed since last btnReset function issued.
 @return true in case button has been pressed since last btnReset function
 */
 bool btnPressed(void);
 
 /**
-Resets the button state so application is ready for the next press
+Resets the button state so application is ready for the next press.
 */
 void btnReset(void);
 
