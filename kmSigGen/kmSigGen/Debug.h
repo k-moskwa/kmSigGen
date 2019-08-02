@@ -1,4 +1,5 @@
-/*
+/** @file
+ * @brief Debug and troubleshooting functions.
  * Debug.h
  *
  *  Created on: Jul 10, 2019
@@ -22,25 +23,25 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  *  References:
- * https://atnel2.blogspot.com/2014/04/puapki-programowe-debuger-na-jednej.html
+ * -# https://atnel2.blogspot.com/2014/04/puapki-programowe-debuger-na-jednej.html
  */
 
 #ifndef DEBUG_H_
 #define DEBUG_H_
 
 /**
-Initializes all ports to pull-up state
+Initializes all ports to pull-up state.
 NOTE: This method should be issued first in the main routine
 */
 void dbPullUpAllPorts(void);
 
 /**
-Initializes the debug routines with specific number of dbStep calls to switch DB_PIN between states
-Following definitions to be set in config.h file
-#define DEBUG_DDR data direction register for debug led (e.g. DDRB)
-#define DEBUG_PORT debug led port (e.g. PORTB)
-#define DEBUG_PIN debug led pin (e.g. PB1)
-to disable debug feature completely - define NO_PIN_DEBUG env variable
+Initializes the debug routines with specific number of dbStep calls to switch DB_PIN between states.
+Following definitions to be set in config.h file @n
+#define \b DEBUG_DDR data direction register for debug led (e.g DDRB) @n
+#define \b DEBUG_PORT debug led port (e.g PORTB) @n
+#define \b DEBUG_PIN debug led pin (e.g PB1) @n
+to disable debug feature completely - define \b NO_PIN_DEBUG env variable
 @param number of steps to switch debug pin from high to low and from low to high state
 */
 void dbInit(uint8_t steps);

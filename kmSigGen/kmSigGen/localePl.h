@@ -1,4 +1,5 @@
-/*
+/** @file
+ * @brief Localization file for Polish language.
  * stringsPl.h
  *
  *  Created on: Jul 11, 2019

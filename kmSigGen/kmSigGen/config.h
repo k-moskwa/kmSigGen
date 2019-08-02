@@ -1,4 +1,5 @@
-/*
+/** @file
+ * @brief Configuration preprocessor parameters for kmSigGen project.
  * config.h
  *
  *  Created on: Jul 09, 2019

@@ -1,4 +1,5 @@
-/*
+/** @file
+ * @brief Version file.
  * version.h
  *
  *  Created on: Jul 12, 2019

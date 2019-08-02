@@ -1,4 +1,5 @@
-/*
+/** @file
+ * @brief Functions for ESP-01 external interface.
  * ExternalInterface.h
  *
  *  Created on: Jul 19, 2019
@@ -30,24 +31,24 @@
 #include <stdint.h>
 
 /**
-Returns true in case splash string has been changed from external module
+Returns true in case splash string has been changed from external module.
 @result true in case splash string has been changed and needs to be updated
 */
 bool extIsSplashStringChanged(void);
 
 /**
-Returns current splash string received from external module
+Returns current splash string received from external module.
 @result current splash string from external module
 */
 const char *extGetSplashString(void);
 
 /**
-Returns true in WiFi address string has been changed from external module
+Returns true in WiFi address string has been changed from external module.
 @result true in WiFi address string has been changed and needs to be updated
 */
 bool extIsWifiAddressChanged(void);
 /**
-Returns current WiFi address received from external module
+Returns current WiFi address received from external module.
 @result current WiFi address from external module
 */
 const char *extGetWifiAddress(void);

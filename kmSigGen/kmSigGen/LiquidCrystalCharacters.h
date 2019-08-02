@@ -1,4 +1,5 @@
-/*
+/** @file
+ * @brief Contains custom character definitions for LCD.
  * LiquidCrystalCharacters.h
  *
  *  Created on: Jul 11, 2019
@@ -25,6 +26,9 @@
 
 #ifndef LIQUIDCRYSTALCHARACTERS_H_
 #define LIQUIDCRYSTALCHARACTERS_H_
+
+#include "config.h"
+#include "stdint.h"
 
 static const uint8_t LCD_CURSOR_RIGHT_NO	= 0x01;
 static const uint8_t LCD_CURSOR_RIGHT[] 	= { 16,24,28,30,28,24,16,32 } ;

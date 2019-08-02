@@ -1,4 +1,5 @@
-/*
+/** @file
+ * @brief Contains string definitions for application.
  * strings.h
  *
  *  Created on: Jul 12, 2019
