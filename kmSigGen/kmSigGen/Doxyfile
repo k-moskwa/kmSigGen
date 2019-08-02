@@ -44,7 +44,7 @@ PROJECT_NUMBER         =
 # for a project that appears at the top of each page and should give viewer a
 # quick idea about the purpose of the project. Keep the description short.
 
-PROJECT_BRIEF          = DDS  Generator based on AD9833 and ATMega8A with WiFi support via ESP8266-01
+PROJECT_BRIEF          = DDS_Generator_based_on_AD9833_and_ATMega8A_with_WiFi_support_via_ESP-01
 
 # With the PROJECT_LOGO tag one can specify a logo or an icon that is included
 # in the documentation. The maximum height of the logo should not exceed 55
