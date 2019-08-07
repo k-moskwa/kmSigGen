@@ -69,7 +69,7 @@
 #define LCD_1LINE 0x00
 
 // flags for back light control
-#define LCD_BACKLIGHT   _BV(PIN3);
+#define LCD_BACKLIGHT   _BV(PIN3)
 #define LCD_NOBACKLIGHT 0x00
 
 #define LCD_PIN_EN PIN2
@@ -156,7 +156,8 @@ void lcdBegin(void) {
 	// before sending commands. MCU can turn on way buffer 4.5V so we'll wait 50
 	_delay_ms(50);
 	// Now we pull both RS and R/W low to begin commands
-	lcdPortWrite(_backlightVal);	// reset expander and turn back light off (Bit 4 = 1)
+	_backlightVal = LCD_NOBACKLIGHT;
+	lcdPortWrite(0);	// reset expander and turn back light off
 	_delay_us(1000);
 
 	//put the LCD into 4 bit mode
@@ -356,11 +357,10 @@ void lcdWrite4bits(uint8_t value) {
 }
 
 void lcdPortWriteAndEnable(uint8_t data) {
-	uint8_t dataCobined = data | _backlightVal;
-	lcdPortWrite(dataCobined | En);	// En high
+	lcdPortWrite(data | En);	// En high
 	_delay_us(70);		// enable pulse must be >450ns (doesn't work if this value is less than 70)
 
-	lcdPortWrite(dataCobined & ~En);	// En low
+	lcdPortWrite(data & ~En);	// En low
 	_delay_us(1);		// commands need > 37us to settle
 }
 

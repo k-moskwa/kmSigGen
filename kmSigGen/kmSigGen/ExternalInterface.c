@@ -111,12 +111,12 @@ uint32_t encodeWaveTypeAndFrequency(void) {
 			break;
 		}			
 		case UI_SIG_SINE : {
-			// wave type square 0b10
+			// wave type sine 0b10
 			currentWaveType |= (0x02L << EXT_BIN_COMMAND_POS_L1);
 			break;
 		}
 		case UI_SIG_TRIANGLE : {
-			// wave type square 0b11
+			// wave type triangle 0b11
 			currentWaveType |= (0x03L << EXT_BIN_COMMAND_POS_L1);
 			break;
 		}
