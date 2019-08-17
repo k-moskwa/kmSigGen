@@ -27,6 +27,9 @@
 #ifndef CONFIG_H_
 #define CONFIG_H_
 
+// Enable for default configuration of ATB-ANDROMEDA developbment board
+//#define KMSG_ATB
+
 // Enable one available localizations
 #define KMSG_LOCALE "localeEn.h"
 //#define KMSG_LOCALE "localePl.h"
@@ -49,8 +52,13 @@
 #define SG_DD_MISO	PB4
 #define SG_DD_SCK 	PB5
 
+#ifndef KMSG_ATB
 #define LCD_DDR DDRD
 #define LCD_PORT PORTD
+#else
+#define LCD_DDR DDRA
+#define LCD_PORT PORTA
+#endif
 #define LCD_COLS 16
 #define LCD_ROWS 2
 #define STR_INTERNAL_BUFFERS_SIZE_OF LCD_COLS + 1
