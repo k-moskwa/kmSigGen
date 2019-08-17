@@ -69,8 +69,13 @@
 #define LCD_1LINE 0x00
 
 // flags for back light control
+#ifndef KMSG_ATB
 #define LCD_BACKLIGHT   _BV(PIN3)
+#else
+#define LCD_BACKLIGHT   _BV(PIN7)
+#endif
 #define LCD_NOBACKLIGHT 0x00
+
 
 #define LCD_PIN_EN PIN2
 #define LCD_PIN_RW PIN1
@@ -364,6 +369,14 @@ void lcdPortWriteAndEnable(uint8_t data) {
 	_delay_us(1);		// commands need > 37us to settle
 }
 
+#ifndef KMSG_ATB
 void lcdPortWrite(uint8_t data) {
 	LCD_PORT = data | _backlightVal;
 }
+#else
+void lcdPortWrite(uint8_t data) {
+        uint8_t newData = (data & 0xF0) >> 1;
+        newData |= data &0x0F;
+        LCD_PORT = newData | _backlightVal;
+}
+#endif
